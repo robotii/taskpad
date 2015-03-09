@@ -52,7 +52,7 @@ namespace TaskApp
             _isLoading = false;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox s = (TextBox)sender;
             string searchTerm = s.Text;
@@ -93,19 +93,16 @@ namespace TaskApp
                 return null;  // Not found
 
             // Try to select the text as a contiguous range
-            for (TextPointer start = searchRange.Start.GetPositionAtOffset(offset); start != searchRange.End; start = start.GetPositionAtOffset(1))
+            for (TextPointer start = searchRange.Start.GetPositionAtOffset(offset); start != null && start != searchRange.End; start = start.GetPositionAtOffset(1))
             {
-                if (start != null)
-                {
-                    TextRange result = new TextRange(start, start.GetPositionAtOffset(searchText.Length));
-                    if (result.Text == searchText)
-                        return result;
-                }
+                TextRange result = new TextRange(start, start.GetPositionAtOffset(searchText.Length));
+                if (result.Text == searchText)
+                    return result;
             }
             return null;
         }
 
-        private void TextBox_OnKeyDown(object sender, KeyEventArgs e)
+        private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key != Key.Return) 
                 return;

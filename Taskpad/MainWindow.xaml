@@ -30,7 +30,7 @@
                     <Image Source="icons/magnifier_16xLG.png" Height="16"></Image>
                 </Button>
             </ToolBar>
-            <TextBox TextChanged="TextBox_TextChanged" FocusManager.IsFocusScope="True" KeyDown="TextBox_OnKeyDown" DockPanel.Dock="Left" />
+            <TextBox TextChanged="SearchBox_TextChanged" FocusManager.IsFocusScope="True" KeyDown="SearchBox_OnKeyDown" DockPanel.Dock="Left" />
         </DockPanel>
         
         <ScrollViewer>
