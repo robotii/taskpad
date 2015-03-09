@@ -1,0 +1,40 @@
+﻿<Window x:Class="TaskApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Taskpad" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="{x:Type Paragraph}">
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File"></MenuItem>
+                <MenuItem Header="_Help"></MenuItem>
+            </Menu>
+            <ToolBar DockPanel.Dock="Left">
+                <Button Click="ButtonNew_OnClick">
+                    <Image Source="icons/NewFile_6276.png" Height="16"></Image>
+                </Button>
+                <Button Click="ButtonOpen_OnClick">
+                    <Image Source="icons/Open_6529.png" Height="16"></Image>
+                </Button>
+                <Button Click="ButtonSave_OnClick">
+                    <Image Source="icons/Save_6530.png" Height="16"></Image>
+                </Button>
+                <Button Click="ButtonSave_OnClick">
+                    <Image Source="icons/Saveall_6518.png" Height="16"></Image>
+                </Button>
+                <Button>
+                    <Image Source="icons/magnifier_16xLG.png" Height="16"></Image>
+                </Button>
+            </ToolBar>
+            <TextBox TextChanged="TextBox_TextChanged" FocusManager.IsFocusScope="True" KeyDown="TextBox_OnKeyDown" DockPanel.Dock="Left" />
+        </DockPanel>
+        
+        <ScrollViewer>
+            <RichTextBox x:Name="ContentBox" TextChanged="RichTextBox_TextChanged" AcceptsTab="True" FontFamily="Calibri" />
+        </ScrollViewer>
+    </DockPanel>
+</Window>
